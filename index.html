@@ -285,6 +285,33 @@
     @media(max-width:560px){
       .header-inner{padding:10px 16px}.brand-copy strong{font-size:15px}.site-nav.open{grid-template-columns:1fr}.site-nav .nav-contact{text-align:left}.page{padding:26px 16px 34px}.promise{grid-template-columns:1fr;gap:14px}.promise div{display:flex;align-items:baseline;gap:10px}.device-wrap{min-height:750px;margin-inline:-8px}.phone{width:308px;height:720px}.phone .app-body{padding-inline:15px}.browser{transform:none;width:100%}.webbody{grid-template-columns:1fr}.sidebar{display:none}.dash{padding:20px 14px}.statrow{gap:6px}.stat{padding:9px}.teacher-grid{grid-template-columns:1fr}.taskbox{display:none}.coverage{margin-top:36px;gap:22px}.subject-lines{grid-template-columns:1fr}.what{padding:26px 17px;margin-top:42px}.features{grid-template-columns:1fr}.feature{min-height:auto;padding:18px}.workflow{padding:26px 18px}.workflow-steps{grid-template-columns:1fr 1fr}.workflow-step{padding:16px 12px 4px 0}.test-maker,.live-room{padding:24px 16px}.field-grid,.field-grid.two{grid-template-columns:1fr 1fr}.custom-question{grid-template-columns:1fr}.question-pick{grid-template-columns:auto minmax(0,1fr)}.question-tools{grid-column:2;justify-content:flex-start;max-width:none}.question-tools em{width:auto;text-align:left}.maker-summary{padding:18px}.live-head{align-items:start;flex-direction:column}.room-launch{grid-template-columns:1fr}.launch-fields{grid-template-columns:1fr}.live-stats{grid-template-columns:1fr 1fr}.student-head{display:none}.student-row{grid-template-columns:1fr 1fr;gap:8px}.student-row>*:nth-child(n+2){font-size:10px}.plans{grid-template-columns:1fr}.plan{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px}.plan strong{grid-row:1 / span 2;grid-column:2;margin:0}.plan span{grid-column:1}.income{gap:20px}.lede{margin-top:18px}.footer-inner{padding:34px 16px 22px}.footer-main{grid-template-columns:1fr 1fr;gap:28px 22px}.footer-lead{grid-column:1 / -1}.footer-brand{flex-wrap:wrap}.footer-bottom{display:grid;gap:8px}.footer-bottom p:first-child{white-space:normal}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    /* ---- Reviews (website_reviews via Firestore) ---- */
+    .reviews{margin-top:64px;background:var(--paper);border-top:5px solid var(--yellow);padding:34px;box-shadow:0 12px 42px rgba(13,56,31,.07)}
+    .reviews-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;margin-top:24px;align-items:start}
+    .avg-card{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center}
+    .avg-stars{font-size:34px;color:var(--yellow);letter-spacing:2px}
+    .avg-num{font-family:"Literata",serif;font-size:44px;margin:6px 0 0}
+    .avg-count{color:var(--muted);font-size:12px;margin-top:4px}
+    .review-list{display:grid;gap:12px;max-height:560px;overflow:auto;padding-right:4px}
+    .review-card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--paper)}
+    .review-card .r-stars{color:var(--yellow);font-size:15px;letter-spacing:1px}
+    .review-card .r-name{font-weight:800;font-size:13px;margin:6px 0 2px}
+    .review-card .r-date{font-size:10px;color:var(--muted)}
+    .review-card .r-text{font-size:13px;line-height:1.55;margin:8px 0 0;color:var(--ink)}
+    .review-form{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--paper);margin-top:24px}
+    .review-form h3{font-family:"Literata",serif;margin:0 0 12px;font-size:20px}
+    .field-label{font-size:12px;font-weight:800;color:var(--muted);display:block;margin-bottom:6px}
+    .star-picker{display:flex;gap:6px;margin:8px 0 14px}
+    .star-picker button{border:1px solid var(--line);background:var(--paper-2);font-size:26px;line-height:1;padding:8px 12px;border-radius:10px;cursor:pointer;color:#c9c9c9}
+    .star-picker button.on{color:var(--yellow);border-color:var(--yellow)}
+    .review-form input[type=text],.review-form textarea{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:14px;font-family:inherit;background:var(--paper);color:var(--ink);margin-bottom:12px}
+    .review-form textarea{min-height:96px;resize:vertical}
+    .review-submit{border:0;background:var(--green);color:#fff;border-radius:10px;padding:12px 22px;font-size:14px;font-weight:800;cursor:pointer}
+    .review-submit:disabled{opacity:.5;cursor:default}
+    .review-msg{font-size:13px;font-weight:700;margin-top:10px;min-height:18px}
+    .review-msg.ok{color:var(--green-2)}
+    .review-msg.err{color:var(--red)}
+    @media(max-width:900px){.reviews-grid{grid-template-columns:1fr}.reviews{padding:26px 17px;margin-top:42px}}
   </style>
 </head>
 <body>
@@ -542,6 +569,32 @@
         <div class="plan"><b>Free</b><strong>Rs 0</strong><span>Daily quiz + limited tests</span></div>
         <div class="plan"><b>Student Plus</b><strong>Monthly</strong><span>All subjects, reports, no ads</span></div>
         <div class="plan"><b>Academy Pro</b><strong>License</strong><span>Teachers, batches, tests + exports</span></div>
+      </div>
+    </section>
+    <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="section-title"><h2 id="reviews-title">Log kya kehte hain</h2><p>Quizistan Academy use karne walon ke asli reviews — apna tajurba neeche likhein.</p></div>
+      <div class="reviews-grid">
+        <div>
+          <div class="avg-card">
+            <div class="avg-stars" id="avgStars">★★★★★</div>
+            <div class="avg-num" id="avgNum">–</div>
+            <div class="avg-count" id="avgCount">Reviews load ho rahe hain…</div>
+          </div>
+          <div class="review-form">
+            <h3>Apna review likhein</h3>
+            <label class="field-label" for="rvName">Naam (optional)</label>
+            <input type="text" id="rvName" maxlength="40" placeholder="Mehman">
+            <span class="field-label">Rating</span>
+            <div class="star-picker" id="starPicker" role="radiogroup" aria-label="Rating">
+              <button type="button" data-v="1" aria-label="1 star">★</button><button type="button" data-v="2" aria-label="2 stars">★</button><button type="button" data-v="3" aria-label="3 stars">★</button><button type="button" data-v="4" aria-label="4 stars">★</button><button type="button" data-v="5" aria-label="5 stars">★</button>
+            </div>
+            <label class="field-label" for="rvText">Review</label>
+            <textarea id="rvText" maxlength="500" placeholder="Apna tajurba likhein…"></textarea>
+            <button class="review-submit" id="rvSubmit" type="button">Review bhejein</button>
+            <div class="review-msg" id="rvMsg" aria-live="polite"></div>
+          </div>
+        </div>
+        <div class="review-list" id="reviewList" aria-live="polite"></div>
       </div>
     </section>
   </main>
@@ -835,6 +888,101 @@
       });
       document.getElementById('sendBroadcast').addEventListener('click',function(){var message=document.getElementById('broadcastText').value.trim();if(!message){roomFeed.textContent='Message likhein phir broadcast karein.';return}roomFeed.textContent='Broadcast sent: '+message;document.getElementById('broadcastText').value=''});
       document.getElementById('endRoom').addEventListener('click',endLiveRoom);
+    })();
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script>
+    (function(){
+      var firebaseConfig = {
+        apiKey: "AIzaSyAwD-dF5rY_ULv9e-7uLhQKAMGQ78c93EA",
+        authDomain: "quizistan-academy.firebaseapp.com",
+        projectId: "quizistan-academy",
+        storageBucket: "quizistan-academy.firebasestorage.app",
+        messagingSenderId: "606589084724",
+        appId: "1:606589084724:web:7ab93e8b60b09713deb5661",
+        measurementId: "G-5YMEN7HL4S"
+      };
+      function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+      function starStr(n){var s="";for(var i=1;i<=5;i++){s+=(i<=n)?"★":"☆";}return s;}
+      var msgEl=document.getElementById("rvMsg");
+      function setMsg(t,ok){msgEl.textContent=t;msgEl.className="review-msg "+(ok?"ok":"err");}
+      var listEl=document.getElementById("reviewList");
+      var db=null;
+      try{
+        firebase.initializeApp(firebaseConfig);
+        db=firebase.firestore();
+      }catch(e){
+        document.getElementById("avgCount").textContent="Reviews load nahi ho sake.";
+        listEl.innerHTML='<div class="review-card"><p class="r-text">Reviews load nahi ho sake. Baad me dobara koshish karein.</p></div>';
+        return;
+      }
+      var picked=0;
+      var picker=document.getElementById("starPicker");
+      var btns=Array.prototype.slice.call(picker.querySelectorAll("button"));
+      btns.forEach(function(b){
+        b.addEventListener("click",function(){
+          picked=parseInt(b.getAttribute("data-v"),10);
+          btns.forEach(function(x){x.classList.toggle("on",parseInt(x.getAttribute("data-v"),10)<=picked);});
+        });
+      });
+      function fmtDate(ts){
+        try{
+          if(!ts||typeof ts.toDate!=="function")return "Naya review";
+          return ts.toDate().toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
+        }catch(e){return "";}
+      }
+      function loadReviews(){
+        db.collection("website_reviews").orderBy("createdAt","desc").limit(20).get().then(function(snap){
+          var total=0,n=0,html="";
+          snap.forEach(function(doc){
+            var r=doc.data()||{};
+            var st=parseInt(r.stars,10);
+            if(!(st>=1&&st<=5))return;
+            total+=st;n++;
+            var name=esc(String(r.name||"Mehman").slice(0,40))||"Mehman";
+            var text=esc(String(r.text||"").slice(0,500));
+            html+='<div class="review-card"><div class="r-stars">'+starStr(st)+'</div><div class="r-name">'+name+'</div><div class="r-date">'+esc(fmtDate(r.createdAt))+'</div><p class="r-text">'+text+'</p></div>';
+          });
+          if(!n){
+            listEl.innerHTML='<div class="review-card"><p class="r-text">Abhi koi review nahi — sab se pehle apna tajurba likhein!</p></div>';
+            document.getElementById("avgStars").textContent="☆☆☆☆☆";
+            document.getElementById("avgNum").textContent="–";
+            document.getElementById("avgCount").textContent="Abhi koi review nahi";
+            return;
+          }
+          listEl.innerHTML=html;
+          var avg=total/n;
+          document.getElementById("avgStars").textContent=starStr(Math.round(avg));
+          document.getElementById("avgNum").textContent=avg.toFixed(1);
+          document.getElementById("avgCount").textContent=n+" reviews";
+        }).catch(function(){
+          document.getElementById("avgCount").textContent="Reviews load nahi ho sake.";
+          listEl.innerHTML='<div class="review-card"><p class="r-text">Reviews load nahi ho sake. Internet check karke page refresh karein.</p></div>';
+        });
+      }
+      document.getElementById("rvSubmit").addEventListener("click",function(){
+        var name=document.getElementById("rvName").value.trim().slice(0,40)||"Mehman";
+        var text=document.getElementById("rvText").value.trim().slice(0,500);
+        if(!(picked>=1&&picked<=5)){setMsg("Pehle 1 se 5 stars chunein.",false);return;}
+        if(!text){setMsg("Review ka text likhein.",false);return;}
+        var btn=document.getElementById("rvSubmit");
+        btn.disabled=true;
+        setMsg("Bheja ja raha hai…",true);
+        db.collection("website_reviews").add({
+          name:name,stars:picked,text:text,
+          createdAt:firebase.firestore.FieldValue.serverTimestamp()
+        }).then(function(){
+          setMsg("Shukriya! Apka review save ho gaya.",true);
+          document.getElementById("rvText").value="";
+          picked=0;
+          btns.forEach(function(x){x.classList.remove("on");});
+          loadReviews();
+        }).catch(function(){
+          setMsg("Review nahi bheja ja saka. Dobara koshish karein.",false);
+        }).finally(function(){btn.disabled=false;});
+      });
+      loadReviews();
     })();
   </script>
 </body>
