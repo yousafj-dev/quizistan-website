@@ -848,7 +848,10 @@
       var webTab=document.getElementById('webTab');
       var phone=document.getElementById('phonePreview');
       var web=document.getElementById('webPreview');
+      var ADMIN_EMAIL='yousafbhutta290@gmail.com';
+      var isAdminUser=false;
       function setView(view){
+        if(view==='web'&&!isAdminUser){view='app';}
         var isApp=view==='app';
         appTab.classList.toggle('active',isApp);webTab.classList.toggle('active',!isApp);
         appTab.setAttribute('aria-selected',String(isApp));webTab.setAttribute('aria-selected',String(!isApp));
@@ -856,6 +859,12 @@
       }
       appTab.addEventListener('click',function(){setView('app')});
       webTab.addEventListener('click',function(){setView('web')});
+      window.qzSetAdmin=function(isAdmin){
+        isAdminUser=!!isAdmin;
+        webTab.style.display=isAdmin?'':'none';
+        if(!isAdmin)setView('app');
+      };
+      window.qzSetAdmin(false);
 
       var questions=[];
       function buildQuizQuestions(){
@@ -1303,6 +1312,7 @@
     });
     logoutBtn.addEventListener('click',function(){auth.signOut();});
     auth.onAuthStateChanged(function(user){
+      try{if(window.qzSetAdmin)window.qzSetAdmin(!!(user&&user.email&&user.email.toLowerCase()==='yousafbhutta290@gmail.com'));}catch(e){}
       if(user){
         loginBtn.classList.add('qz-hidden');
         chip.classList.remove('qz-hidden');
