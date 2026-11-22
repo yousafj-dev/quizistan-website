@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="VibeShort — Videos Dekho, Coins Kamao. Watch short videos, create your own with your favourite songs, and earn coins. Free Android download." />
+  <title>VibeShort — Videos Dekho, Coins Kamao | Free Download</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,700;7..72,800&display=swap');
+    :root{
+      color-scheme: light dark;
+      --page:#f3f7f4;
+      --paper:#ffffff;
+      --paper-2:#edf4ef;
+      --ink:#13251b;
+      --muted:#5c6f63;
+      --line:#d5e0d8;
+      --green:#117a4d;
+      --green-2:#0a5d3a;
+      --mint:#d8f2e3;
+      --yellow:#f2c94c;
+      --yellow-soft:#fff3c7;
+      --shadow:0 24px 70px rgba(15, 49, 29, .13);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root{
+        --page:#0d1711;
+        --paper:#132219;
+        --paper-2:#192c20;
+        --ink:#f0f8f2;
+        --muted:#abc0b1;
+        --line:#2b4433;
+        --green:#50cf8c;
+        --green-2:#8ae6b2;
+        --mint:#1c3a29;
+        --yellow:#f0c95a;
+        --yellow-soft:#40371d;
+        --shadow:0 26px 70px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--page);
+      color:var(--ink);
+      font-family:"DM Sans",sans-serif;
+      min-height:100vh;
+    }
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:var(--paper);
+      border-bottom:1px solid var(--line);
+      box-shadow:0 8px 26px rgba(15,49,29,.07);
+    }
+    .header-inner{
+      width:min(1180px,100%);
+      min-height:72px;
+      margin:0 auto;
+      padding:0 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .site-brand{display:flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none;min-width:max-content}
+    .brand-mark{
+      width:46px;height:46px;display:grid;place-items:center;
+      background:var(--green);border-radius:11px;
+      box-shadow:0 3px 10px rgba(21,49,31,.13);
+      color:#fff;font-size:19px;line-height:1;
+    }
+    .brand-copy strong{display:block;font-family:"Literata",serif;font-size:16px;line-height:1.1;letter-spacing:-.02em}
+    .brand-copy span{display:block;margin-top:3px;color:var(--green-2);font-size:10px;font-weight:700}
+    .back-link{color:var(--muted);text-decoration:none;font-size:12px;font-weight:700;padding:10px 9px;border-radius:8px}
+    .back-link:hover,.back-link:focus-visible{background:var(--paper-2);color:var(--green-2)}
+    .page{
+      width:min(760px,100%);
+      margin:0 auto;
+      padding:48px 28px 56px;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-bottom:16px;
+      font-weight:700;
+    }
+    .eyebrow::before{
+      content:"";
+      width:28px;height:4px;border-radius:4px;background:var(--yellow);
+    }
+    .eyebrow span{color:var(--green-2)}
+    h1{
+      font-family:"Literata",serif;
+      font-size:clamp(38px,8vw,56px);
+      line-height:1.05;
+      letter-spacing:-.02em;
+      margin:0 0 14px;
+    }
+    h1 .accent{color:var(--green)}
+    .lede{font-size:17px;line-height:1.55;color:var(--muted);margin:0 0 8px;max-width:56ch}
+    .download-btn{
+      display:inline-flex;align-items:center;gap:10px;
+      background:var(--green);color:#fff;text-decoration:none;
+      font-weight:800;font-size:19px;
+      padding:17px 36px;border-radius:14px;margin-top:20px;
+      box-shadow:0 8px 22px rgba(17,122,77,.3);
+    }
+    .download-btn:hover,.download-btn:focus-visible{background:var(--green-2)}
+    .download-note{margin-top:12px;font-size:13px;color:var(--muted);font-weight:600}
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:15px;
+      padding:22px;
+      margin-top:28px;
+      box-shadow:var(--shadow);
+    }
+    .card h2{font-family:"Literata",serif;font-size:22px;margin:0 0 14px;line-height:1.15}
+    .features{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+    .features li{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5}
+    .features .icon{
+      flex:0 0 auto;width:34px;height:34px;display:grid;place-items:center;
+      background:var(--mint);border-radius:9px;font-size:16px;
+    }
+    .features strong{color:var(--ink)}
+    .features span{color:var(--muted)}
+    .steps{list-style:none;margin:0;padding:0;counter-reset:step;display:grid;gap:14px}
+    .steps li{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:var(--muted)}
+    .steps li::before{
+      counter-increment:step;content:counter(step);
+      flex:0 0 auto;width:30px;height:30px;display:grid;place-items:center;
+      background:var(--yellow);color:#4a3800;border-radius:50%;
+      font-weight:800;font-size:14px;
+    }
+    .steps strong{color:var(--ink)}
+    .coin-strip{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;
+    }
+    .coin-strip div{
+      flex:1 1 150px;background:var(--yellow-soft);border:1px solid var(--line);
+      border-radius:12px;padding:14px;text-align:center;
+    }
+    .coin-strip strong{display:block;font-family:"Literata",serif;font-size:18px;color:var(--ink)}
+    .coin-strip span{display:block;margin-top:3px;font-size:11px;font-weight:700;color:var(--muted)}
+    footer{
+      border-top:1px solid var(--line);
+      margin-top:44px;padding-top:20px;
+      font-size:12px;color:var(--muted);
+      display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;
+    }
+    footer a{color:var(--green-2);text-decoration:none;font-weight:700}
+    @media (max-width:560px){
+      .header-inner{padding:0 18px}
+      .page{padding:36px 18px 44px}
+      .download-btn{width:100%;justify-content:center}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-brand" href="vibeshort.html">
+        <span class="brand-mark" aria-hidden="true">&#9654;</span>
+        <span class="brand-copy"><strong>VibeShort</strong><span>VIDEOS DEKHO, COINS KAMAO</span></span>
+      </a>
+      <a class="back-link" href="index.html">&larr; Quizistan Academy</a>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="eyebrow"><strong>VibeShort</strong><span>Videos Dekho, Coins Kamao</span></div>
+    <h1>Short videos. <span class="accent">Real coins.</span></h1>
+    <p class="lede">Watch fun short videos, create your own with your favourite songs, and earn coins for your time. VibeShort is free — download the Android app and start vibing today.</p>
+
+    <a class="download-btn" href="https://github.com/yousafj-dev/vibeshort-app/releases/download/test-apk-62/app-release.apk">&#128241; Download VibeShort — Free</a>
+    <p class="download-note">Free download &bull; Android &bull; No Play Store needed</p>
+
+    <div class="coin-strip" aria-label="Earning highlights">
+      <div><strong>1,000 Coins</strong><span>= Rs 100</span></div>
+      <div><strong>+50 Coins</strong><span>Welcome bonus</span></div>
+      <div><strong>Rs 500</strong><span>Minimum withdrawal</span></div>
+    </div>
+
+    <section class="card" aria-label="Features">
+      <h2>What you get</h2>
+      <ul class="features">
+        <li><span class="icon" aria-hidden="true">&#127909;</span><p style="margin:0"><strong>Endless short videos</strong><br /><span>A fast, fun feed of short videos to watch anytime.</span></p></li>
+        <li><span class="icon" aria-hidden="true">&#127925;</span><p style="margin:0"><strong>Your video, your song</strong><br /><span>Pick a video from your phone gallery, add your own song, and choose exactly which part of the song plays.</span></p></li>
+        <li><span class="icon" aria-hidden="true">&#9986;&#65038;</span><p style="margin:0"><strong>Full editor built in</strong><br /><span>Filters, effects, trim, crop and stylish text — everything you need to make your video shine.</span></p></li>
+        <li><span class="icon" aria-hidden="true">&#129689;</span><p style="margin:0"><strong>Earn coins</strong><br /><span>Get coins for watching, daily check-ins and inviting friends. 1,000 coins = Rs 100.</span></p></li>
+        <li><span class="icon" aria-hidden="true">&#128176;</span><p style="margin:0"><strong>Easy withdrawals</strong><br /><span>Cash out to Easypaisa, JazzCash or your bank account.</span></p></li>
+      </ul>
+    </section>
+
+    <section class="card" aria-label="How to install">
+      <h2>Install in 3 easy steps</h2>
+      <ol class="steps">
+        <li><p style="margin:0"><strong>Download</strong> — tap the green Download button above and wait for the app file to download.</p></li>
+        <li><p style="margin:0"><strong>Allow install</strong> — when your phone asks, tap <strong>&ldquo;Allow from this source&rdquo;</strong> so the app can install.</p></li>
+        <li><p style="margin:0"><strong>Open &amp; enjoy</strong> — open VibeShort, sign in, and start watching and earning.</p></li>
+      </ol>
+    </section>
+
+    <footer>
+      <span>VibeShort — Videos Dekho, Coins Kamao</span>
+      <span><a href="index.html">Quizistan Academy</a> &bull; <a href="privacy.html">Privacy Policy</a></span>
+    </footer>
+  </main>
+</body>
+</html>
